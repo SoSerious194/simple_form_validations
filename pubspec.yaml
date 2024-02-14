@@ -1,8 +1,8 @@
 name: simple_form_validations
 description: "Simple Form Validations is a Dart package that provides a collection of validators for common data validation scenarios."
 version: 1.0.0
-repository: https://github.com/SoSerious194/simple_validations
-homepage: https://github.com/SoSerious194/simple_validations
+repository: https://github.com/SoSerious194/simple_form_validations
+homepage: https://github.com/SoSerious194/simple_form_validations
 
 topics:
   - textfield
