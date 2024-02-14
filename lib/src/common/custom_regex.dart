@@ -121,4 +121,36 @@ class CustomRegEx {
 
   /// RegEx for validating postal address
   static RegExp postalAddressRegex = RegExp(r'^[0-9a-zA-Z\s.,-]+$');
+
+  /// RegEx for validating CVV
+  static RegExp cvvRegex = RegExp(r'^[0-9]{3,4}$');
+
+  /// RegEx for validating IPV6
+  static RegExp ipv6Regex =
+      RegExp(r'^([0-9a-fA-F]{1,4}:){7}([0-9a-fA-F]{1,4})$');
+
+  /// RegEx for validating latitude
+  static RegExp latitudeRegex = RegExp(r'^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?)$');
+
+  /// RegEx for validating longitude
+  static RegExp longitudeRegex =
+      RegExp(r'^[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$');
+
+  /// RegEx for validating username or display name
+  static RegExp usernameOrDisplayNameRegex = RegExp(r'^[a-zA-Z0-9_]{3,16}$');
+
+  /// RegEx for validating emojis
+  static RegExp emojiRegex = RegExp(
+    r'[\u{1F600}-\u{1F64F}' // Emoticons
+    r'\u{1F300}-\u{1F5FF}' // Misc Symbols and Pictographs
+    r'\u{1F680}-\u{1F6FF}' // Transport and Map Symbols
+    r'\u{1F1E0}-\u{1F1FF}' // Flags (iOS)
+    r'\u{2600}-\u{26FF}' // Misc symbols
+    r'\u{2700}-\u{27BF}' // Dingbats
+    r']',
+    unicode: true, // Enable Unicode character matching
+  );
+
+  /// RegEx for validating slug
+  static RegExp slugRegex = RegExp(r'^[a-z0-9]+(?:-[a-z0-9]+)*$');
 }

@@ -81,6 +81,20 @@ import 'package:simple_form_validations/src/common/custom_regex.dart';
 /// [uuidV4Validator] to validate UUID v4
 ///
 /// [postalAddressValidator] to validate postal address
+///
+/// [cvvValidator] to validate CVV
+///
+/// [ipv6Validator] to validate ipv6
+///
+/// [latitudeValidator] to validate if the provided value matches the pattern of a valid latitude coordinate, ranging from -90 to +90 degrees
+///
+/// [longitudeValidator] to validate if the provided value matches the pattern of a valid longitude coordinate, ranging from -180 to +180 degrees.
+///
+/// [usernameOrDisplayNameValidator] to validate whtner the provided value is a valid username or display name
+///
+/// [emojiValidator] to validate whtner the provided value does not contain any emojis
+///
+/// [slugValidator] to validate slug
 
 class SimpleValidations {
   /// [emptyFieldValidator] to validate if a form field is empty or not
@@ -700,12 +714,112 @@ class SimpleValidations {
   /// validator: (value) => SimpleValidations.postalAddressValidator(value, [errorMessage]),
   /// ```
   static String? postalAddressValidator(String? value, [String? errorMessage]) {
-    // Customize the regex pattern based on the format of postal addresses in your region
     RegExp regex = CustomRegEx.postalAddressRegex;
     if (value == null || value.isEmpty) {
       return errorMessage ?? 'Required';
     } else if (!regex.hasMatch(value)) {
       return errorMessage ?? 'Please enter a valid postal address';
+    }
+    return null;
+  }
+
+  /// [cvvValidator] to validate CVV
+  /// ```Dart
+  /// validator: (value) => SimpleValidations.cvvValidator(value, [errorMessage]),
+  /// ```
+  static String? cvvValidator(String? value, [String? errorMessage]) {
+    RegExp regex = CustomRegEx.cvvRegex;
+    if (value == null || value.isEmpty) {
+      return errorMessage ?? 'Required';
+    } else if (!regex.hasMatch(value)) {
+      return errorMessage ?? 'Please enter a valid CVV';
+    }
+    return null;
+  }
+
+  /// [ipv6Validator] to validate ipv6
+  /// ```Dart
+  /// validator: (value) => SimpleValidations.ipv6Validator(value, [errorMessage]),
+  /// ```
+  static String? ipv6Validator(String? value, [String? errorMessage]) {
+    RegExp regex = CustomRegEx.ipv6Regex;
+    if (value == null || value.isEmpty) {
+      return errorMessage ?? 'Required';
+    } else if (!regex.hasMatch(value)) {
+      return errorMessage ?? 'Please enter a valid IPv6 address';
+    }
+    return null;
+  }
+
+  /// [latitudeValidator] to validate if the provided value matches the pattern of a valid latitude coordinate, ranging from -90 to +90 degrees
+  /// ```Dart
+  /// validator: (value) => SimpleValidations.latitudeValidator(value, [errorMessage]),
+  /// ```
+  static String? latitudeValidator(String? value, [String? errorMessage]) {
+    RegExp regex = CustomRegEx.latitudeRegex;
+    if (value == null || value.isEmpty) {
+      return errorMessage ?? 'Required';
+    } else if (!regex.hasMatch(value)) {
+      return errorMessage ?? 'Please enter a valid latitude';
+    }
+    return null;
+  }
+
+  /// [longitudeValidator] to validate if the provided value matches the pattern of a valid longitude coordinate, ranging from -180 to +180 degrees.
+  /// ```Dart
+  /// validator: (value) => SimpleValidations.longitudeValidator(value, [errorMessage]),
+  /// ```
+  static String? longitudeValidator(String? value, [String? errorMessage]) {
+    RegExp regex = CustomRegEx.longitudeRegex;
+    if (value == null || value.isEmpty) {
+      return errorMessage ?? 'Required';
+    } else if (!regex.hasMatch(value)) {
+      return errorMessage ?? 'Please enter a valid longitude';
+    }
+    return null;
+  }
+
+  /// [usernameOrDisplayNameValidator] to validate whtner the provided value is a valid username or display name
+  /// ```Dart
+  /// validator: (value) => SimpleValidations.usernameOrDisplayNameValidator(value, [errorMessage]),
+  /// ```
+  static String? usernameOrDisplayNameValidator(String? value,
+      [String? errorMessage]) {
+    RegExp regex = CustomRegEx.usernameOrDisplayNameRegex;
+    if (value == null || value.isEmpty) {
+      return errorMessage ?? 'Required';
+    } else if (!regex.hasMatch(value)) {
+      return errorMessage ?? 'Please enter a valid username or display name';
+    }
+    return null;
+  }
+
+  /// [emojiValidator] to validate whtner the provided value does not contain any emojis
+  /// ```Dart
+  /// validator: (value) => SimpleValidations.emojiValidator(value, [errorMessage]),
+  /// ```
+  static String? emojiValidator(String? value, [String? errorMessage]) {
+    RegExp regex = CustomRegEx.emojiRegex;
+
+    if (value == null || value.isEmpty) {
+      return errorMessage ?? 'Required';
+    } else if (regex.hasMatch(value)) {
+      return errorMessage ?? 'Please enter text without emojis';
+    }
+    return null;
+  }
+
+  /// [slugValidator] to validate slug
+  /// ```Dart
+  /// validator: (value) => SimpleValidations.slugValidator(value, [errorMessage]),
+  /// ```
+  static String? slugValidator(String? value, [String? errorMessage]) {
+    RegExp regex = CustomRegEx.slugRegex;
+
+    if (value == null || value.isEmpty) {
+      return errorMessage ?? 'Required';
+    } else if (!regex.hasMatch(value)) {
+      return errorMessage ?? 'Please enter a valid slug';
     }
     return null;
   }

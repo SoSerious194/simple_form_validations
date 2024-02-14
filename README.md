@@ -112,6 +112,13 @@ The following validators are available in the package:
 - `imei15Validator`
 - `uuidV4Validator`
 - `postalAddressValidator`
+- `cvvValidator`
+- `ipv6Validator`
+- `latitudeValidator`
+- `longitudeValidator`
+- `usernameOrDisplayNameValidator`
+- `emojiValidator`
+- `slugValidator`
 
 ## Issues and Feedback
 
